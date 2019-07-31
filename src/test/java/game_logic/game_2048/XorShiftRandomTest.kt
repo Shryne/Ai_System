@@ -61,7 +61,7 @@ class XorShiftRandomTest {
     fun distributedNumbers() {
         val max = 10
         val counts = IntArray(max)
-        val runs = 10_000
+        val runs = 100_000
         val error = 0.05
         XorShiftRandom().run {
             for (i in 0..runs) {
@@ -69,12 +69,12 @@ class XorShiftRandomTest {
             }
         }
         val expected = runs / max
-        val min_expected = expected - expected * error
-        val max_expected = expected + expected * error
-        counts.forEachIndexed {
-            index, i -> assertTrue(
-            min_expected < i && i < max_expected,
-            "Expected i to be between $min_expected and $max_expected " +
+        val minExpected = expected - expected * error
+        val maxExpected = expected + expected * error
+        counts.forEach {
+            i -> assertTrue(
+            minExpected < i && i < maxExpected,
+            "Expected i to be between $minExpected and $maxExpected " +
                 "but is: $i. All values: ${Arrays.toString(counts)}"
             )
         }
