@@ -1,0 +1,10 @@
+dist: trusty
+addons:
+  sonarcloud:
+    organization: "shryne-github"
+    token:
+      secure: "pyrYi/ip3ME1IKPxS1qlDyWebGn1gGKdy0y8xja3EuO88sJQryYS2kujRA+/uLnYQH+1EhhwEkHh93MtumPeKu8UiRB4V+YmqDpJTJfMetQpRgF2dYCP1aXd2STThGcovwAwEss5O7G7Xjw08vRVoul09e7oj9KFQtN0NA3ExMrgU6ysuq8DoK46fnUUFDoCVPamBI9KvM9jnJy4jHxQqcdJ26O1RsXdyIg0DwsDkgf4Y86JB+bWup1ee7kV9XpYb5vPyRUAyFvvv36CgB89m1CcNVqVPJlzbgk/AuZDiKX4ieRp4VWszUXs1Q/eFz7LSmUYeyfCLfuWfp4q/4QYgjfRuG5oYpSLGo35/5oeb4x+LfygsP/Zo9UNnpQsWt1+vKMjmbb3/8brVF/15J9TR85QePk1WOw3FNmBMO0fsCalp2dkv/9fRdkeqrs7C7dIKa4IWo6lwbX4Ieth4PzYcy8ybhBeCNgc2RmHwfOdcmFLLcFiED97UHwhW/XrLTj0uWFlml5ZDbHAfTv5JCFEHnGSeyv6MjyONJP0vl8G7JDmfVQrUhwj6YBf4/Ycn47qAHtkUe8BKKz5Lp8bsREq/qbDcXB/eu0/PNhn9bfRnArD0PXLnQDuk30DiXBrGXDDZa0FOgF+VjIdnFPqA5bTuW+GlOxgfYuwq3FSkNk+Iyo="
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=io.github.shryne:AI_System
