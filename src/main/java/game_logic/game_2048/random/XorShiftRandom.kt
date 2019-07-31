@@ -37,7 +37,7 @@ class XorShiftRandom(
      * This method mutates the state of the object.
      * @return A positive number between 0 (inclusive) and max (exclusive).
      */
-    override fun next(max: Int) = Math.floorMod(next(), max)
+    override fun next(max: Int): Int = Math.floorMod(next(), max)
 
     /**
      * This method mutates the state of the object.
