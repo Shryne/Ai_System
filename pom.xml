@@ -6,7 +6,7 @@
 
     <groupId>io.github.shryne</groupId>
     <artifactId>Ai_System</artifactId>
-    <version>0.2.10</version>
+    <version>0.2.11</version>
 
     <properties>
         <!-- sonar cloud stuff -->
@@ -41,6 +41,21 @@
             <artifactId>kotlin-test-junit</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>no.tornado</groupId>
+            <artifactId>tornadofx</artifactId>
+            <version>1.7.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>12.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>13-ea+10</version>
         </dependency>
     </dependencies>
 
