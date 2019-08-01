@@ -7,4 +7,6 @@ addons:
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify org.jacoco:jacoco-maven-plugin:report install sonar:sonar -Dsonar.projectKey=io.github.shryne:AI_System -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify org.jacoco:jacoco-maven-plugin:report install sonar:sonar
+  -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+  -Dsonar.projectKey=io.github.shryne:AI_System
