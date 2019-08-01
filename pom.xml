@@ -6,7 +6,7 @@
 
     <groupId>io.github.shryne</groupId>
     <artifactId>Ai_System</artifactId>
-    <version>0.2.9</version>
+    <version>0.2.10</version>
 
     <properties>
         <!-- sonar cloud stuff -->
@@ -46,16 +46,12 @@
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.3</version>
                 <configuration>
                     <append>true</append>
-                    <includes>my.root.package.*</includes>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
-                    <dataFile>${sonar.jacoco.reportPath}</dataFile>
                 </configuration>
                 <executions>
                     <execution>
