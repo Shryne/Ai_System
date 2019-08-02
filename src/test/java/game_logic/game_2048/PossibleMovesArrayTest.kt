@@ -24,6 +24,7 @@ package game_logic.game_2048
 
 import org.junit.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class PossibleMovesArrayTest {
     /**
@@ -67,6 +68,29 @@ class PossibleMovesArrayTest {
             this[3] = Move.DOWN
             clear()
             assertEquals(0, size)
+        }
+    }
+
+    /**
+     * [PossibleMovesArray.contains] must return true if the given element is
+     * inside the array.
+     */
+    fun containsElement() {
+        PossibleMovesArray().apply {
+            this[2] = Move.LEFT
+            assertTrue { Move.LEFT in this }
+        }
+    }
+
+    /**
+     * [PossibleMovesArray.contains] must return false if the given element is
+     * inside the array and its index is greater than [PossibleMovesArray.size].
+     */
+    fun doesntContainOutsider() {
+        PossibleMovesArray().apply {
+            this[2] = Move.LEFT
+            this[0] = Move.UP // to make size smaller
+            assertTrue { Move.LEFT !in this }
         }
     }
 }

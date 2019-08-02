@@ -57,4 +57,13 @@ class PossibleMovesArray : SmallCollection<Move> {
 
     override fun toString(): String =
         Arrays.toString(Arrays.copyOfRange(container, 0, size))
+
+    override fun contains(element: Move): Boolean {
+        for (i in 0..size) {
+            if (this[i] == element) {
+                return true
+            }
+        }
+        return false
+    }
 }

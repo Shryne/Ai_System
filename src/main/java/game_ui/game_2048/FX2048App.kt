@@ -20,18 +20,23 @@
  *
  */
 
-package game_logic.game_2048
+package game_ui.game_2048
+
+import tornadofx.*
 
 /**
- * A collection defining a reduced set of operations needed for the application.
- * Classes implementing this interface are mutable.
+ * The class to start the 2048 game.
  */
-interface SmallCollection<T> {
-    val size: Int
-    fun isEmpty() = size == 0
+class FX2048App : App(FX2048::class) {
+    init {
+        reloadStylesheetsOnFocus()
+    }
 
-    operator fun set(index: Int, elem: T)
-    operator fun get(index: Int): T
-    operator fun contains(element: T): Boolean
-    fun clear()
+    fun start(args: Array<String>) {
+        launch(*args)
+    }
+}
+
+fun main(args: Array<String>) {
+    FX2048App().start(args)
 }

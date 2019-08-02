@@ -6,7 +6,7 @@
 
     <groupId>io.github.shryne</groupId>
     <artifactId>Ai_System</artifactId>
-    <version>0.2.11</version>
+    <version>0.3</version>
 
     <properties>
         <!-- sonar cloud stuff -->
