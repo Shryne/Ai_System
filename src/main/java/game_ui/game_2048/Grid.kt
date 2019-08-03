@@ -12,6 +12,7 @@ import javafx.scene.layout.StackPane
 import javafx.stage.Screen
 import javafx.util.Duration
 import tornadofx.*
+import kotlin.math.min
 
 /**
  * This class holds the grid of 2048 and coordinates the movement of the tiles. The map size is assumed to be
@@ -20,7 +21,7 @@ import tornadofx.*
 class Grid(
     private val map: IntArray,
     private val margin: Double
-) {
+) : StackPane() {
     private val gap = (Screen.getPrimary().dpi * 0.12) // TODO: CSS
     private val grounds = (0 until map.size).map {
         Ground()
@@ -34,31 +35,40 @@ class Grid(
      * tilePane tends to get the wrong size and I am not sure why. Maybe a gridPane would work better, but because
      * it's easy to restore the correct size by resizing the window again I won't spend time on this now.
      */
-    val visualContent: Pane = StackPane().run {
-        tilepane {
-            alignment = Pos.CENTER
-            hgap = gap
-            vgap = gap
+    init {
+        addClass(Style.grid)
+        add(
+            tilepane {
+                alignment = Pos.CENTER
+                hgap = gap
+                vgap = gap
 
-            grounds.forEach { g ->
-                add(g)
-
-                //widthProperty().onChange { g.distributeTileSize(min(width, height)) }
-                //heightProperty().onChange { g.distributeTileSize(min(width, height)) }
+                (0..map.size).map {
+                    rectangle {
+                        addClass(Style.tile0)
+                        widthProperty().onChange { sizePerTile(min(width, height)) }
+                        heightProperty().onChange { sizePerTile(min(width, height)) }
+                    }
+                }
             }
-        }
+        )
+        add(
+            tilepane {
+                alignment = Pos.CENTER
+                hgap = gap
+                vgap = gap
 
-        tilepane {
-            alignment = Pos.CENTER
-            hgap = gap
-            vgap = gap
-
-            tiles.forEach { tile ->
-                add(tile)
-                //widthProperty().onChange { tile.distributeTileSize(min(width, height)) }
-                //heightProperty().onChange { tile.distributeTileSize(min(width, height)) }
+                tiles.forEach { tile ->
+                    add(tile)
+                    //widthProperty().onChange { tile.distributeTileSize(min(width, height)) }
+                    //heightProperty().onChange { tile.distributeTileSize(min(width, height)) }
+                }
             }
-        }
+        )
+    }
+
+    fun sizePerTile(distributableSize: Double) {
+        ((distributableSize - gap * (4 + 1)) / 4) // TODO: Replace this with map.rowSize
     }
 }
 

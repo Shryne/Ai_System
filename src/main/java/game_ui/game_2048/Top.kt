@@ -27,66 +27,80 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
+import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import tornadofx.*
+import kotlin.math.max
 
 /**
  * The top of the ui, containing information and control.
  */
 class Top(
-    private val margin: Double,
-    private val gameRestart: () -> Unit
+    private val margin: Double, // TODO: CSS
+    private val gameRestart: () -> Unit // TODO: Maybe as interface?
 ) : VBox() {
     private val scoreProperty = SimpleIntegerProperty()
     private val highScoreProperty = SimpleIntegerProperty()
 
     init {
-        padding = Insets(
-            margin / 2.0, margin / 2.0, margin / 2.0, margin / 2.0
+        padding = Insets(margin, margin, margin, margin)
+        val title = label(Style.TITLE) {
+            addClass(Style.gameTitle)
+        }
+        val scoreRect = scoreRect(
+            Style.SCORE_RECT_TITLE, scoreProperty, margin
         )
+        val highScoreRect = scoreRect(
+            Style.HIGH_SCORE_RECT_TITLE, highScoreProperty, margin
+        )
+        // the BorderPane is necessary to center the label vertically
+        val instruction = borderpane {
+            center = label(Style.INSTRUCTION_TEXT).addClass(Style.instruction)
+        }
+        val restart = button(Style.NEW_GAME_BUTTON_TEXT) {
+            addClass(Style.newGameButton)
+            padding = Insets(margin)
+            // Don't put the raw game. Use the GUI version of it because
+            //  otherwise there won't be a GUI-update
+            setOnAction { gameRestart() }
+        }
+        val minWidthListener = ChangeListener<Number> {
+            _, _, new ->
+            minWidth =
+                max(
+                    scoreRect.width + highScoreRect.width,
+                instruction.width + restart.width
+            )
+        }
+        title.widthProperty().addListener(minWidthListener)
+        scoreRect.widthProperty().addListener(minWidthListener)
+        highScoreRect.widthProperty().addListener(minWidthListener)
+        instruction.widthProperty().addListener(minWidthListener)
+        restart.widthProperty().addListener(minWidthListener)
         add(
-
             borderpane {
-                left = label(Style.TITLE).addClass(Style.gameTitle)
-                right = borderpane {
-                    padding = Insets(margin / 2.0, 0.0, margin / 2.0, 0.0)
-                    left = scoreRect(
-                        Style.SCORE_RECT_TITLE, scoreProperty, margin
-                    )
-                    right = scoreRect(
-                        Style.HIGH_SCORE_RECT_TITLE, highScoreProperty, margin
-                    )
+                left = title
 
-                    // Some empty space, because that's the easiest way I could put
-                    //  some space between the rectangles.
-                    center = rectangle(margin, margin, margin, margin) {
-                        fill = c("#0000")  // TODO: Add to Style class
-                    }
+                right = hbox {
+                    padding = Insets(0.0, 0.0, margin, 0.0)
+                    spacing = margin
+                    add(scoreRect)
+                    add(highScoreRect)
                 }
             }
         )
         add(
             borderpane {
-                padding = Insets(margin, 0.0, margin, 0.0)
-                left = borderpane {// TODO: Is this necessary?
-                    center = label(Style.INSTRUCTION_TEXT).addClass(Style.instruction)
-                }
-                right = button(Style.NEW_GAME_BUTTON_TEXT) {
-                    addClass(Style.newGameButton)
-                    padding = Insets(margin)
-                    // Don't put the raw game. Use the GUI version of it because
-                    //  otherwise there won't be a GUI-update
-                    setOnAction { gameRestart() }
-                }
+                left = instruction
+                right = restart
             }
         )
     }
 
     private fun Node.scoreRect(title: String, score: Property<Number>, margin: Double) =
         vbox {
-            padding = Insets(margin / 2.0, margin, margin / 2.0, margin)
+            padding = Insets(margin, margin, margin, margin)
             alignment = Pos.CENTER
-
             label(title).addClass(Style.scoreLabel)
             label(score).addClass(Style.scoreValue)
         }.addClass(Style.scoreTile)

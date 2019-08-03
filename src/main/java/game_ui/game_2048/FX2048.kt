@@ -23,29 +23,42 @@ class FX2048 : View(Style.TITLE) {
         center = vbox {
             addClass(Style.root)
             alignment = Pos.TOP_CENTER
-
+            /*
             Screen.getPrimary().visualBounds.run {
                 min(width, height).let {
                     primaryStage.minWidth = it * Style.WIDTH_PERCENTAGE
                     primaryStage.minHeight = it * Style.HEIGHT_PERCENTAGE
                 }
-            }
-            add(Top(Style.dpi * 0.12) {
-                game.restart()
-            })
-            //Grid()
-            /*
-            fun thirdAreaSize() = min(
-                height - firstArea.height - secondArea.height - margin * 2.0, width - margin * 2.0)
-            */
-            /*
-            heightProperty().onChange {
-                thirdAreaSize().resizeAreas(firstArea, secondArea, thirdArea)
-            }
-
-            widthProperty().onChange {
-                thirdAreaSize().resizeAreas(firstArea, secondArea, thirdArea)
             }*/
+
+            val top = Top(Style.dpi * 0.06) {
+                game.restart()
+            }
+            val grid = Grid(
+                intArrayOf(),
+                Style.dpi * 0.12
+            )
+            heightProperty().addListener {
+                _, _, new ->
+                grid.prefHeight = min(new.toDouble() - top.height, width)
+            }
+            widthProperty().addListener {
+                _, _, new ->
+                grid.prefHeight = min(height - top.height, new.toDouble())
+            }
+            grid.prefWidthProperty().bind(grid.widthProperty())
+            top.prefWidthProperty().bind(grid.widthProperty())
+            add(top)
+            add(grid)
+            minWidthProperty().bind(top.minWidthProperty())
+            minWidthProperty().addListener {
+                _, _, _ ->
+                primaryStage.sizeToScene()
+                primaryStage.minWidth = primaryStage.width
+            }
+        }
+        primaryStage.widthProperty().addListener {
+            _, _, new -> println("Width: $new")
         }
         setOnKeyPressed {
             when (it.code) {
