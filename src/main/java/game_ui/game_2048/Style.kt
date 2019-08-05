@@ -188,7 +188,7 @@ class Style : Stylesheet() {
                 textFill = c("#f9f6f2")
                 highlightFill = c("#5a3a27")
 
-                and(Stylesheet.pressed) {
+                and(pressed) {
                     backgroundColor += c("#5a3a27")
                 }
             }
@@ -197,6 +197,8 @@ class Style : Stylesheet() {
             grid {
                 val radius = 8.px
 
+                backgroundInsets += box(5.px)
+                borderInsets += box(5.px)
                 backgroundColor += c("#a39284")
                 backgroundRadius += box(radius)
                 borderColor += box(Color.BLACK)

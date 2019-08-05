@@ -65,10 +65,10 @@ class Top(
             setOnAction { gameRestart() }
         }
         val minWidthListener = ChangeListener<Number> {
-            _, _, new ->
+            _, _, _ ->
             minWidth =
                 max(
-                    scoreRect.width + highScoreRect.width,
+                    title.width + scoreRect.width + highScoreRect.width,
                 instruction.width + restart.width
             )
         }
@@ -77,24 +77,25 @@ class Top(
         highScoreRect.widthProperty().addListener(minWidthListener)
         instruction.widthProperty().addListener(minWidthListener)
         restart.widthProperty().addListener(minWidthListener)
-        add(
-            borderpane {
-                left = title
-
-                right = hbox {
-                    padding = Insets(0.0, 0.0, margin, 0.0)
-                    spacing = margin
-                    add(scoreRect)
-                    add(highScoreRect)
-                }
+        val top = borderpane {
+            left = title
+            right = hbox {
+                padding = Insets(0.0, 0.0, margin, 0.0)
+                spacing = margin
+                add(scoreRect)
+                add(highScoreRect)
             }
-        )
-        add(
-            borderpane {
-                left = instruction
-                right = restart
-            }
-        )
+        }
+        val bottom = borderpane {
+            left = instruction
+            right = restart
+        }
+        // necessary because for some reason the top tries to be a little bit
+        //  smaller...
+        top.minWidthProperty().bind(bottom.widthProperty())
+        minHeightProperty().bind(heightProperty())
+        add(top)
+        add(bottom)
     }
 
     private fun Node.scoreRect(title: String, score: Property<Number>, margin: Double) =

@@ -5,6 +5,7 @@ import javafx.animation.PauseTransition
 import javafx.animation.ScaleTransition
 import javafx.animation.TranslateTransition
 import javafx.event.EventTarget
+import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.Pane
@@ -36,9 +37,12 @@ class Grid(
      * it's easy to restore the correct size by resizing the window again I won't spend time on this now.
      */
     init {
+        padding = Insets(margin, margin, margin, margin)
         addClass(Style.grid)
         add(
             tilepane {
+                padding = Insets(margin, margin, margin, margin)
+
                 alignment = Pos.CENTER
                 hgap = gap
                 vgap = gap
@@ -54,6 +58,8 @@ class Grid(
         )
         add(
             tilepane {
+                padding = Insets(margin, margin, margin, margin)
+
                 alignment = Pos.CENTER
                 hgap = gap
                 vgap = gap
