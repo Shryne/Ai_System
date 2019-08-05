@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane
 import javafx.stage.Screen
 import javafx.util.Duration
 import tornadofx.*
+import tornadofx.Stylesheet.Companion.label
 import kotlin.math.min
 
 /**
@@ -61,7 +62,7 @@ class Grid(
                 vgap = gap
 
                 tiles.forEach { tile ->
-                    add(tile)
+                    //add(tile)
                     //widthProperty().onChange { tile.distributeTileSize(min(width, height)) }
                     //heightProperty().onChange { tile.distributeTileSize(min(width, height)) }
                 }
@@ -74,7 +75,7 @@ class Grid(
     }
 }
 
-class Tile(number: Int) : Node() {
+class Tile(number: Int) {
     companion object { // debug stuff
         private const val TIME_MULTIPLIER = 1.0
 
@@ -100,16 +101,16 @@ class Tile(number: Int) : Node() {
             visualContent.addClass(Style.tile, Style.tileStyles.fromLog(value))
         }
 
-    val label = label(number.toString()) {
-        addClass(Style.tileText, Style.tileTextStyles.fromLog(number))
-    }
-
-    val visualContent: Pane = run {
+    val visualContent: Pane = Pane().run {
         stackpane {
             visibleWhen { label.textProperty().isNotEqualTo("0") }
             addClass(Style.tile, Style.tileStyles.fromLog(number))
             add(label)
         }
+    }
+
+    val label = visualContent.label(number.toString()) {
+        addClass(Style.tileText, Style.tileTextStyles.fromLog(number))
     }
 
     fun reset(newNumber: Int) {

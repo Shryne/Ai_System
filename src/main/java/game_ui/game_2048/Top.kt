@@ -36,7 +36,7 @@ import kotlin.math.max
  * The top of the ui, containing information and control.
  */
 class Top(
-    private val gameRestart: () -> Unit // TODO: Maybe as interface?
+    private val gameRestart: () -> Unit // TODO: Maybe as an interface?
 ) : VBox() {
     private val scoreProperty = SimpleIntegerProperty()
     private val highScoreProperty = SimpleIntegerProperty()
