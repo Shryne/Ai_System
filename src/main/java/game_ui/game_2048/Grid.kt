@@ -20,8 +20,7 @@ import kotlin.math.min
  * DEFAULT_MAP_SIZE.
  */
 class Grid(
-    private val map: IntArray,
-    private val margin: Double
+    private val map: IntArray
 ) : StackPane() {
     private val gap = (Screen.getPrimary().dpi * 0.12) // TODO: CSS
     private val grounds = (0 until map.size).map {
@@ -37,11 +36,9 @@ class Grid(
      * it's easy to restore the correct size by resizing the window again I won't spend time on this now.
      */
     init {
-        padding = Insets(margin, margin, margin, margin)
         addClass(Style.grid)
         add(
             tilepane {
-                padding = Insets(margin, margin, margin, margin)
 
                 alignment = Pos.CENTER
                 hgap = gap
@@ -58,7 +55,6 @@ class Grid(
         )
         add(
             tilepane {
-                padding = Insets(margin, margin, margin, margin)
 
                 alignment = Pos.CENTER
                 hgap = gap

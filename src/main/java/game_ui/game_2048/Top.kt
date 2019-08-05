@@ -36,22 +36,21 @@ import kotlin.math.max
  * The top of the ui, containing information and control.
  */
 class Top(
-    private val margin: Double, // TODO: CSS
     private val gameRestart: () -> Unit // TODO: Maybe as interface?
 ) : VBox() {
     private val scoreProperty = SimpleIntegerProperty()
     private val highScoreProperty = SimpleIntegerProperty()
 
     init {
-        padding = Insets(margin, margin, margin, margin)
+        addClass(Style.top)
         val title = label(Style.TITLE) {
             addClass(Style.gameTitle)
         }
         val scoreRect = scoreRect(
-            Style.SCORE_RECT_TITLE, scoreProperty, margin
+            Style.SCORE_RECT_TITLE, scoreProperty
         )
         val highScoreRect = scoreRect(
-            Style.HIGH_SCORE_RECT_TITLE, highScoreProperty, margin
+            Style.HIGH_SCORE_RECT_TITLE, highScoreProperty
         )
         // the BorderPane is necessary to center the label vertically
         val instruction = borderpane {
@@ -59,7 +58,6 @@ class Top(
         }
         val restart = button(Style.NEW_GAME_BUTTON_TEXT) {
             addClass(Style.newGameButton)
-            padding = Insets(margin)
             // Don't put the raw game. Use the GUI version of it because
             //  otherwise there won't be a GUI-update
             setOnAction { gameRestart() }
@@ -80,8 +78,10 @@ class Top(
         val top = borderpane {
             left = title
             right = hbox {
-                padding = Insets(0.0, 0.0, margin, 0.0)
-                spacing = margin
+                padding = Insets(
+                    0.0, 0.0, Style.margin.value, 0.0
+                )
+                spacing = Style.margin.value
                 add(scoreRect)
                 add(highScoreRect)
             }
@@ -98,9 +98,11 @@ class Top(
         add(bottom)
     }
 
-    private fun Node.scoreRect(title: String, score: Property<Number>, margin: Double) =
+    private fun Node.scoreRect(title: String, score: Property<Number>) =
         vbox {
-            padding = Insets(margin, margin, margin, margin)
+            padding = Style.margin.value.run {
+                Insets(this, this, this, this)
+            }
             alignment = Pos.CENTER
             label(title).addClass(Style.scoreLabel)
             label(score).addClass(Style.scoreValue)

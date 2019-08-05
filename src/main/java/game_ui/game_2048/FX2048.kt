@@ -25,49 +25,19 @@ class FX2048 : View(Style.TITLE) {
             addClass(Style.root)
             alignment = Pos.TOP_CENTER
             fitToParentHeight()
-            /*
-            Screen.getPrimary().visualBounds.run {
-                min(width, height).let {
-                    primaryStage.minWidth = it * Style.WIDTH_PERCENTAGE
-                    primaryStage.minHeight = it * Style.HEIGHT_PERCENTAGE
-                }
-            }*/
 
-            val top = Top(Style.dpi * 0.06) {
+            val top = Top {
                 game.restart()
             }
             val grid = Grid(
-                intArrayOf(),
-                Style.dpi * 0.12
+                intArrayOf()
             )
-            /*
-            primaryStage.heightProperty().addListener {
-                _, _, _ ->
-                grid.prefHeight = min(height - top.height, width)
-                grid.prefWidth = grid.prefHeight
-                grid.maxHeight = grid.prefHeight
-                grid.maxWidth = grid.prefHeight
-                top.maxWidth = grid.prefHeight
-                grid.minWidth = top.minWidth
-                grid.minHeight = top.minHeight
-            }
-            primaryStage.widthProperty().addListener {
-                _, _, _ ->
-                grid.prefHeight = min(height - top.height, width)
-                grid.prefWidth = grid.prefHeight
-                grid.maxHeight = grid.prefHeight
-                grid.maxWidth = grid.prefHeight
-                top.maxWidth = grid.prefHeight
-                grid.minWidth = top.minWidth
-                grid.minHeight = top.minHeight
-            }*/
             add(top)
             add(grid)
             top.maxWidthProperty().bind(grid.widthProperty())
             minWidthProperty().bind(top.minWidthProperty())
             grid.minWidthProperty().bind(top.minWidthProperty())
             grid.prefWidthProperty().bind(primaryStage.widthProperty())
-            //grid.maxWidthProperty().bind(grid.heightProperty())
 
             grid.prefHeightProperty().bind(
                 primaryStage.heightProperty().minus(

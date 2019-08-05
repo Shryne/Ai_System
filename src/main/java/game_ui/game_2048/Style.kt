@@ -21,12 +21,16 @@ class Style : Stylesheet() {
         val scaleX = Screen.getPrimary().outputScaleX
         val scaleY = Screen.getPrimary().outputScaleY
 
+        val margin = 5.px
+
         /* texts */
         const val TITLE = "2048"
         const val SCORE_RECT_TITLE = "SCORE"
         const val HIGH_SCORE_RECT_TITLE = "BEST"
         const val INSTRUCTION_TEXT = "Join equal tiles to get 2048!"
         const val NEW_GAME_BUTTON_TEXT = "Restart"
+
+        val top by cssclass()
 
         val game2048 by cssclass()
 
@@ -139,7 +143,10 @@ class Style : Stylesheet() {
                 backgroundColor += c("#faf8ef")
             }
 
-            /* top */
+            top {
+                padding = box(margin)
+            }
+
             gameTitle {
                 fontFamily = "Arial"
                 fontWeight = FontWeight.BOLD
@@ -197,8 +204,8 @@ class Style : Stylesheet() {
             grid {
                 val radius = 8.px
 
-                backgroundInsets += box(5.px)
-                borderInsets += box(5.px)
+                backgroundInsets += box(margin)
+                borderInsets += box(margin)
                 backgroundColor += c("#a39284")
                 backgroundRadius += box(radius)
                 borderColor += box(Color.BLACK)
