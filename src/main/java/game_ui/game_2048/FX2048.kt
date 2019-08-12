@@ -16,9 +16,6 @@ import kotlin.math.min
 class FX2048 : View(Style.TITLE) {
     private val game: Game2048 = Binary2048()
 
-    val score: Int
-        get() = game.score
-
     override val root = borderpane {
         addClass(Style.game2048)
         center = vbox {

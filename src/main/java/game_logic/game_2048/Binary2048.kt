@@ -32,12 +32,11 @@ import kotlin.math.max
  * Instances of this class are mutable and not thread-safe.
  */
 // TODO: Adjust lines to fit in the 80 characters border
-class Binary2048(board: Long = 0) : Game2048 {
-    var board: Long = board
-        private set
+class Binary2048(override val board: BinaryBoard) : Game2048 {
+    constructor(binary: Long = 0) : this(BinaryBoard(binary))
 
     /**
-     * The score value of the board before any merge happened. This is
+     * The score value of the binary before any merge happened. This is
      * necessary, because [SCORE_TABLE] assumes that the values are the result
      * of merges - even for a 4 that spawned at the beginning.
      */
@@ -55,19 +54,19 @@ class Binary2048(board: Long = 0) : Game2048 {
     private var possibleMovesDetermined = false // for the current turn
 
     override val isOver: Boolean
-        get() = executeMoveUp(board) == board
-            && executeMoveLeft(board) == board
-            && executeMoveRight(board) == board
-            && executeMoveDown(board) == board
+        get() = executeMoveUp(board.binary) == board.binary
+            && executeMoveLeft(board.binary) == board.binary
+            && executeMoveRight(board.binary) == board.binary
+            && executeMoveDown(board.binary) == board.binary
 
     override val score: Int
-        get() = scoreHelper(board) - initialScore
+        get() = scoreHelper(board.binary) - initialScore
 
     override val highestTile: Int
         get() {
             var highestTile = 0
             for (i in 0 until DEFAULT_MAP_SIZE) {
-                highestTile = max(highestTile, get(board, i))
+                highestTile = max(highestTile, board[i])
             }
             return pow(2, highestTile)
         }
@@ -77,25 +76,23 @@ class Binary2048(board: Long = 0) : Game2048 {
     }
 
     override fun play(move: Move) {
-        val backup = board
-        board = when (move) {
+        val backup = board.binary
+        board.binary = when (move) {
             Move.LEFT -> executeMoveLeft(backup)
             Move.RIGHT -> executeMoveRight(backup)
             Move.UP -> executeMoveUp(backup)
             Move.DOWN -> executeMoveDown(backup)
         }
-        if (board != backup) {
-            board = insertTileRand(board, randomNumber(), countEmpty(board))
+        if (board.binary != backup) {
+
+            board.insertRandomTile(randomNumber(), countEmpty(board.binary))
             possibleMovesDetermined = false
         }
     }
 
     override fun restart() {
-        board = insertTileRand(
-            insertTileRand(0, randomNumber(), 16),
-            randomNumber(),
-            15
-        )
+        board.insertRandomTile(randomNumber(), board.size)
+        board.insertRandomTile(randomNumber(),board.size - 1)
         initialScore = score
         determinePossibleMoves()
     }
@@ -108,7 +105,7 @@ class Binary2048(board: Long = 0) : Game2048 {
     override fun toString(): String {
         val result = StringBuilder("[score: ").append(score).append("]\n[")
         for (i in 0 until DEFAULT_MAP_SIZE) {
-            result.append(get(board, i))
+            result.append(board[i])
 
             if ((i + 1) % DEFAULT_MAP_ROW_LENGTH == 0) {
                 result.append("]\n[")
@@ -134,22 +131,22 @@ class Binary2048(board: Long = 0) : Game2048 {
 
     private fun determinePossibleMoves() {
         var possibleMovesAmount = 0
-        if (executeMoveLeft(board) != board) {
+        if (executeMoveLeft(board.binary) != board.binary) {
             possibleMoves[possibleMovesAmount] = Move.LEFT
             possibleMovesAmount++
         }
 
-        if (executeMoveRight(board) != board) {
+        if (executeMoveRight(board.binary) != board.binary) {
             possibleMoves[possibleMovesAmount] = Move.RIGHT
             possibleMovesAmount++
         }
 
-        if (executeMoveUp(board) != board) {
+        if (executeMoveUp(board.binary) != board.binary) {
             possibleMoves[possibleMovesAmount] = Move.UP
             possibleMovesAmount++
         }
 
-        if (executeMoveDown(board) != board) {
+        if (executeMoveDown(board.binary) != board.binary) {
             possibleMoves[possibleMovesAmount] = Move.DOWN
         }
         possibleMovesDetermined = true
@@ -179,7 +176,6 @@ class Binary2048(board: Long = 0) : Game2048 {
         private const val DEFAULT_MAP_ROW_LENGTH = 4
         private const val DEFAULT_MAP_SIZE = DEFAULT_MAP_ROW_LENGTH * DEFAULT_MAP_ROW_LENGTH
 
-        private const val BITS_PER_TILE = 4
         private const val ROW_MASK = 0xFFFFL
         private const val COL_MASK = 0x000F000F000F000FL
 
@@ -312,36 +308,6 @@ class Binary2048(board: Long = 0) : Game2048 {
                 SCORE_TABLE[(board shr 16 and ROW_MASK).toInt()] +
                 SCORE_TABLE[(board shr 32 and ROW_MASK).toInt()] +
                 SCORE_TABLE[(board shr 48 and ROW_MASK).toInt()]
-        }
-
-        private fun insertTileRand(board: Long, number: Int, amountOfEmpties: Int): Long {
-            val emptySpawnIndex = random.next(amountOfEmpties)
-            var emptiesCounter = -1
-            var spawnIndex = -1
-
-            while (emptiesCounter < emptySpawnIndex) {
-                spawnIndex++
-                if (get(board, spawnIndex) == 0) emptiesCounter++
-            }
-
-            return set(board, spawnIndex, number.toLong())
-        }
-
-        private operator fun get(board: Long, index: Int): Int {
-            return (board shr BITS_PER_TILE * (DEFAULT_MAP_SIZE - index - 1)
-                shl java.lang.Long.SIZE - BITS_PER_TILE)
-                .ushr(java.lang.Long.SIZE - BITS_PER_TILE).toInt()
-        }
-
-        private operator fun set(board: Long, index: Int, value: Long): Long {
-            return board xor (value shl (DEFAULT_MAP_SIZE - index - 1) * BITS_PER_TILE)
-        }
-
-        private fun has(board: Long, value: Int): Boolean {
-            for (i in 0 until DEFAULT_MAP_SIZE) {
-                if (get(board, i) == value) return true
-            }
-            return false
         }
 
         private fun unpackCol(row: Long): Long {

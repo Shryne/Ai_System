@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19b44a42-eab3-4718-a9fc-4c89e4d48a89" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Top.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Top.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Board.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,20 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            <state relative-caret-position="867">
+              <caret line="65" column="43" lean-forward="true" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -38,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
+            <state relative-caret-position="1547">
+              <caret line="96" column="35" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -47,8 +44,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            <state relative-caret-position="119">
+              <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Move.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -57,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Top.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="816">
-              <caret line="76" column="49" lean-forward="true" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+              <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -65,11 +71,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="26" column="20" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="20" />
+            <state relative-caret-position="275">
+              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-140">
+              <caret line="151" column="38" lean-forward="true" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#1137#1209#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -80,10 +108,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -96,6 +124,9 @@
       <find>score</find>
       <find>margin</find>
       <find>top</find>
+      <find>inse</find>
+      <find>insertRandomTile</find>
+      <find>insertTileRand</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -126,9 +157,7 @@
         <option value="$PROJECT_DIR$/src/test/java/game_logic/game_2048/XorShiftRandomTest.kt" />
         <option value="$PROJECT_DIR$/src/test/java/game_logic/game_2048/Binary2048Test.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/EventualMemoryArray.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Move.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Map.kt" />
         <option value="$PROJECT_DIR$/src/test/java/game_logic/game_2048/SomeTest.java" />
         <option value="$PROJECT_DIR$/.travis.yml" />
@@ -143,11 +172,16 @@
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048App.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/AnimatedScore.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/GameView.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Top.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/GameMap.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryMap.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt" />
       </list>
     </option>
   </component>
@@ -179,7 +213,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-63" />
-    <option name="y" value="-11" />
+    <option name="y" value="-12" />
     <option name="width" value="1890" />
     <option name="height" value="960" />
   </component>
@@ -189,6 +223,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,6 +265,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="game_logic" type="462c0819:PsiDirectoryNode" />
               <item name="game_2048" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ai_System" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ai_System" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="game_logic" type="462c0819:PsiDirectoryNode" />
+              <item name="game_2048" type="462c0819:PsiDirectoryNode" />
+              <item name="random" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ai_System" type="b2602c69:ProjectViewProjectNode" />
@@ -283,7 +328,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,7 +362,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.game_ui.game_2048.FX2048AppKt">
+  <component name="RunManager" selected="JUnit.game_logic in Ai_System">
     <configuration name="SomeTest.someTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ai_System" />
       <extension name="coverage">
@@ -335,18 +379,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XorShiftRandomTest.belowMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="game_logic in Ai_System" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ai_System" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game_logic.game_2048.*" />
+          <option name="PATTERN" value="game_logic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="game_logic.game_2048" />
-      <option name="MAIN_CLASS_NAME" value="game_logic.game_2048.XorShiftRandomTest" />
-      <option name="METHOD_NAME" value="belowMax" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="game_logic" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -392,11 +434,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.game_logic in Ai_System" />
         <item itemvalue="Kotlin.game_ui.game_2048.FX2048AppKt" />
         <item itemvalue="Kotlin.game_logic.game_2048.random.XorShiftRandomKt" />
         <item itemvalue="Kotlin.game_logic.game_2048.random.RandomKt" />
         <item itemvalue="JUnit.SomeTest.someTest" />
-        <item itemvalue="JUnit.XorShiftRandomTest.belowMax" />
       </list>
     </recent_temporary>
   </component>
@@ -495,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565009878634</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix for travis">
+      <created>1565019805010</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1565019805010</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -531,10 +580,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="703" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -542,13 +591,13 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" visible="true" weight="0.22719735" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924694" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" weight="0.22591944" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3283582" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27495623" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50040483" side_tool="true" weight="0.31509122" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3034826" />
@@ -577,7 +626,8 @@
     <MESSAGE value="make minWidth from window fit to Top's minWidth" />
     <MESSAGE value="make window sizing correct" />
     <MESSAGE value="push margin to css" />
-    <option name="LAST_COMMIT_MESSAGE" value="push margin to css" />
+    <MESSAGE value="fix for travis" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix for travis" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/game_logic/package-info.java" />
@@ -613,13 +663,6 @@
             <element signature="e#46121#46122#0" expanded="true" />
             <element signature="e#46164#46165#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Move.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -667,17 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="162" column="12" selection-start-line="162" selection-start-column="12" selection-end-line="162" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1137#1209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/SmallCollection.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -696,13 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="63" column="27" lean-forward="true" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/random/XorShiftRandom.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -785,16 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/CSS.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -802,38 +817,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="867">
+          <caret line="65" column="43" lean-forward="true" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="1547">
+          <caret line="96" column="35" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Top.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
-          <caret line="76" column="49" lean-forward="true" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Move.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="119">
+          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/random/XorShiftRandom.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Board.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="151" column="38" lean-forward="true" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1137#1209#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -19,45 +19,24 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+
 package game_logic.game_2048
 
-/**
- * The 2048 game.
- */
-interface Game2048 {
+interface Board {
     /**
-     * The current score of the game. It's the sum of all numbers that were
-     * created by a merge.
+     * The number of field on the map (normally 16).
      */
-    val score: Int
+    val size: Int
 
     /**
-     * The highest tile of the binary.
+     * The number of fields in a row (normally 4).
      */
-    val highestTile: Int
+    val rowSize: Int
 
     /**
-     * Whether the game is over or not.
+     * Returns the field on the given index.
+     * @param index The index of the field. It has to be between 0 and [size].
+     * @return The value of the field on the index.
      */
-    val isOver: Boolean
-
-    /**
-     * The map of the game.
-     */
-    val board: Board
-
-    /**
-     * Plays the given move. This method mutates the game.
-     */
-    fun play(move: Move)
-
-    /**
-     * Returns the moves that are playable for the current binary.
-     */
-    fun possibleMoves(): SmallCollection<Move>
-
-    /**
-     * Restarts the game.
-     */
-    fun restart()
+    operator fun get(index: Int): Int
 }
