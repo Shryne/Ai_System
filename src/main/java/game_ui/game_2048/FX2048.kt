@@ -26,9 +26,7 @@ class FX2048 : View(Style.TITLE) {
             val top = Top {
                 game.restart()
             }
-            val grid = Grid(
-                intArrayOf()
-            )
+            val grid = Grid(game.board)
             add(top)
             add(grid)
             top.maxWidthProperty().bind(grid.widthProperty())

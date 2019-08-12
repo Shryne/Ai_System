@@ -219,7 +219,7 @@ class Style : Stylesheet() {
             }
 
             tileText {
-                fontSize = 55.px
+                fontSize = 45.px
                 fontFamily = "Arial"
                 fontWeight = FontWeight.BOLD
                 stroke = Paint.valueOf("transparent") // TODO: check whether that line does anything

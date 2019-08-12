@@ -1,5 +1,6 @@
 package game_ui.game_2048
 
+import game_logic.game_2048.Board
 import game_ui.game_2048.Style.Companion.fromLog
 import javafx.animation.PauseTransition
 import javafx.animation.ScaleTransition
@@ -8,28 +9,25 @@ import javafx.event.EventTarget
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
+import javafx.scene.control.Button
 import javafx.scene.layout.Pane
+import javafx.scene.layout.Priority
 import javafx.scene.layout.StackPane
 import javafx.stage.Screen
 import javafx.util.Duration
 import tornadofx.*
+import tornadofx.Stylesheet.Companion.button
 import tornadofx.Stylesheet.Companion.label
+import java.util.*
 import kotlin.math.min
 
 /**
  * This class holds the grid of 2048 and coordinates the movement of the tiles. The map size is assumed to be
  * DEFAULT_MAP_SIZE.
  */
-class Grid(
-    private val map: IntArray
-) : StackPane() {
+// TODO: The maps size is still not quadratic
+class Grid(private val board: Board) : StackPane() {
     private val gap = (Screen.getPrimary().dpi * 0.12) // TODO: CSS
-    private val grounds = (0 until map.size).map {
-        Ground()
-    }.toTypedArray()
-    private val tiles = (0 until map.size).map {
-        Tile(map[it])
-    }.toTypedArray()
 
     /**
      * I use a tilePane to align the tiles and it seems to be kind of unstable. If one resizes the window, the
@@ -40,42 +38,30 @@ class Grid(
         addClass(Style.grid)
         add(
             tilepane {
-
+                prefColumns = 4
                 alignment = Pos.CENTER
                 hgap = gap
                 vgap = gap
 
-                (0..map.size).map {
-                    rectangle {
-                        addClass(Style.tile0)
-                        widthProperty().onChange { sizePerTile(min(width, height)) }
-                        heightProperty().onChange { sizePerTile(min(width, height)) }
-                    }
+                val action = {
+                    _: Double ->
+                    prefTileWidth = sizePerTile(min(width, height))
+                    prefTileHeight = prefTileWidth
                 }
-            }
-        )
-        add(
-            tilepane {
-
-                alignment = Pos.CENTER
-                hgap = gap
-                vgap = gap
-
-                tiles.forEach { tile ->
-                    //add(tile)
-                    //widthProperty().onChange { tile.distributeTileSize(min(width, height)) }
-                    //heightProperty().onChange { tile.distributeTileSize(min(width, height)) }
+                widthProperty().onChange(action)
+                heightProperty().onChange(action)
+                (0 until board.size).forEach {
+                    add(Tile(board[it]).visualContent)
                 }
             }
         )
     }
 
-    fun sizePerTile(distributableSize: Double) {
-        ((distributableSize - gap * (4 + 1)) / 4) // TODO: Replace this with map.rowSize
-    }
+    private fun sizePerTile(distributableSize: Double)
+        = (distributableSize - gap * (4 + 1)) / 4 // TODO: Replace this with map.rowSize
 }
 
-class Tile(number: Int) {
+class Tile(private var number: Int) {
     companion object { // debug stuff
         private const val TIME_MULTIPLIER = 1.0
 
@@ -89,33 +75,14 @@ class Tile(number: Int) {
     var animationSpeed: Double = 1.0
     var futureNumber = number
 
-    var number: Int = number
-        set(value) {
-            label.removeClass(Style.tileTextStyles.fromLog(field))
-            visualContent.removeClass(Style.tileStyles.fromLog(field))
-
-            field = value
-            label.text = value.toString()
-
-            label.addClass(Style.tileText, Style.tileTextStyles.fromLog(value))
-            visualContent.addClass(Style.tile, Style.tileStyles.fromLog(value))
+    val visualContent = StackPane().apply {
+        addClass(Style.tile, Style.tileStyles.fromLog(number))
+        label {
+            isVisible = (number != 0)
+            text = number.toString()
+            addClass(Style.tileText, Style.tileTextStyles.fromLog(number))
         }
-
-    val visualContent: Pane = Pane().run {
-        stackpane {
-            visibleWhen { label.textProperty().isNotEqualTo("0") }
-            addClass(Style.tile, Style.tileStyles.fromLog(number))
-            add(label)
-        }
-    }
-
-    val label = visualContent.label(number.toString()) {
-        addClass(Style.tileText, Style.tileTextStyles.fromLog(number))
-    }
-
-    fun reset(newNumber: Int) {
-        number = newNumber
-        futureNumber = newNumber
+        useMaxSize = true
     }
 
     fun push(to: Tile, onFinished: () -> Unit = {}) {
