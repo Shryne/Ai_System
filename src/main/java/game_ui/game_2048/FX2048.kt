@@ -84,10 +84,6 @@ class FX2048 : View(Style.TITLE) {
         }
     }
 
-    init {
-        importStylesheet(Style::class)
-    }
-
     fun play(move: Move) {
         if (move in game.possibleMoves()) {
             game.play(move)

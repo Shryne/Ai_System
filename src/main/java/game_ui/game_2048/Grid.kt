@@ -53,7 +53,7 @@ class Grid(private val board: Board) {
     }
 
     private fun sizePerTile(distributableSize: Double)
-        = (distributableSize - gap * (4 + 1)) / 4 // TODO: Replace this with map.rowSize
+        = (distributableSize - gap * (board.rowSize + 1)) / board.rowSize
 }
 
 class Tile(private var number: Int) {
