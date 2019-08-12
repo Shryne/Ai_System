@@ -26,15 +26,10 @@ import kotlin.math.min
  * DEFAULT_MAP_SIZE.
  */
 // TODO: The maps size is still not quadratic
-class Grid(private val board: Board) : StackPane() {
+class Grid(private val board: Board) {
     private val gap = (Screen.getPrimary().dpi * 0.12) // TODO: CSS
 
-    /**
-     * I use a tilePane to align the tiles and it seems to be kind of unstable. If one resizes the window, the
-     * tilePane tends to get the wrong size and I am not sure why. Maybe a gridPane would work better, but because
-     * it's easy to restore the correct size by resizing the window again I won't spend time on this now.
-     */
-    init {
+    val visualContent = StackPane().apply {
         addClass(Style.grid)
         add(
             tilepane {

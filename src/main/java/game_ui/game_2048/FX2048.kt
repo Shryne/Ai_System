@@ -28,34 +28,38 @@ class FX2048 : View(Style.TITLE) {
             }
             val grid = Grid(game.board)
             add(top)
-            add(grid)
-            top.maxWidthProperty().bind(grid.widthProperty())
+            add(grid.visualContent)
+            top.maxWidthProperty().bind(grid.visualContent.widthProperty())
             minWidthProperty().bind(top.minWidthProperty())
-            grid.minWidthProperty().bind(top.minWidthProperty())
-            grid.prefWidthProperty().bind(primaryStage.widthProperty())
+            grid.visualContent.minWidthProperty().bind(top.minWidthProperty())
+            grid.visualContent.prefWidthProperty().bind(
+                primaryStage.widthProperty()
+            )
 
-            grid.prefHeightProperty().bind(
+            grid.visualContent.prefHeightProperty().bind(
                 primaryStage.heightProperty().minus(
                     top.heightProperty()
                 )
             )
             primaryStage.widthProperty().addListener {
                 _, _, _ ->
-                grid.maxWidth = min(
+                grid.visualContent.maxWidth = min(
                     primaryStage.height - top.height,
                     primaryStage.width
                 )
-                grid.maxHeight = grid.maxWidth
+                grid.visualContent.maxHeight = grid.visualContent.maxWidth
             }
             primaryStage.heightProperty().addListener {
                 _, _, _ ->
-                grid.maxWidth = min(
+                grid.visualContent.maxWidth = min(
                     primaryStage.height - top.height,
                     primaryStage.width
                 )
-                grid.maxHeight = grid.maxWidth
+                grid.visualContent.maxHeight = grid.visualContent.maxWidth
             }
-            grid.minHeightProperty().bind(grid.minWidthProperty())
+            grid.visualContent.minHeightProperty().bind(
+                grid.visualContent.minWidthProperty()
+            )
             minWidthProperty().addListener {
                 _, _, _ ->
                 primaryStage.sizeToScene()
@@ -63,7 +67,7 @@ class FX2048 : View(Style.TITLE) {
             } // TODO: I am not sure, whether this is a good idea when I start
             //  to use the view in another view. It could influence the other
             minHeightProperty().bind(
-                top.minHeightProperty().plus(grid.minHeightProperty())
+                top.minHeightProperty().plus(grid.visualContent.minHeightProperty())
             )
             minHeightProperty().addListener {
                 _, _, _ -> primaryStage.minHeight = primaryStage.height
