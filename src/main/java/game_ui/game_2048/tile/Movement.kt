@@ -56,6 +56,21 @@ fun <T: Tile<T>> pushRight(tiles: List<T>) {
     }
 }
 
+fun <T: Tile<T>> pushDown(tiles: List<T>) {
+    for (y in (0 until BinaryBoard.LINE_SIZE).reversed()) {
+        for (x in 0 until BinaryBoard.LINE_SIZE) {
+            val current = tiles[y, x].number
+            if (current != 0) {
+                for (y1 in (0 until BinaryBoard.LINE_SIZE).reversed()) {
+                    if (tiles[y1, x].number == 0) {
+                        tiles[y, x].push(tiles[y1, x])
+                    }
+                }
+            }
+        }
+    }
+}
+
 fun <T: Tile<T>> mergeLeft(tiles: List<T>) {
     for (y in 0 until BinaryBoard.LINE_SIZE) {
         for (x in 0 until BinaryBoard.LINE_SIZE) {
@@ -84,6 +99,24 @@ fun <T: Tile<T>> mergeRight(tiles: List<T>) {
                         tiles[y, x1].merge(tiles[y, x])
                         break
                     } else if (tiles[y, x1].number != 0) {
+                        break
+                    }
+                }
+            }
+        }
+    }
+}
+
+fun <T: Tile<T>> mergeDown(tiles: List<T>) {
+    for (y in (0 until BinaryBoard.LINE_SIZE).reversed()) {
+        for (x in 0 until BinaryBoard.LINE_SIZE) {
+            val current = tiles[y, x].number
+            if (current != 0) {
+                for (y1 in (0 until y).reversed()) {
+                    if (tiles[y1, x].number == current) {
+                        tiles[y1, x].merge(tiles[y, x])
+                        break
+                    } else if (tiles[y1, x].number != 0) {
                         break
                     }
                 }
