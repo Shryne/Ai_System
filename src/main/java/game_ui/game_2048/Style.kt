@@ -13,14 +13,6 @@ import tornadofx.*
  */
 class Style : Stylesheet() {
     companion object {
-        /* resolution */
-        const val WIDTH_PERCENTAGE = 0.4
-        const val HEIGHT_PERCENTAGE = 0.5
-        const val GRID_SIZE_PERCENTAGE = 0.6
-        val dpi = Screen.getPrimary().dpi
-        val scaleX = Screen.getPrimary().outputScaleX
-        val scaleY = Screen.getPrimary().outputScaleY
-
         val margin = 5.px
 
         /* texts */
@@ -248,31 +240,31 @@ class Style : Stylesheet() {
 
             tile128 { backgroundColor += c("#f59563") }
             text128 {
-                fontSize = 45.px
+                fontSize = 35.px
                 textFill = c("#f9f6f2")
             }
 
             tile256 { backgroundColor += c("#edcc61") }
             text256 {
-                fontSize = 45.px
+                fontSize = 35.px
                 textFill = c("#f9f6f2")
             }
 
             tile512 { backgroundColor += c("#edc850") }
             text512 {
-                fontSize = 45.px
+                fontSize = 35.px
                 textFill = c("#f9f6f2")
             }
 
             tile1024 { backgroundColor += c("#edc53f") }
             text1024 {
-                fontSize = 35.px
+                fontSize = 30.px
                 textFill = c("#f9f6f2")
             }
 
             tile2048 { backgroundColor += c("#edc22e") }
             text2048 {
-                fontSize = 35.px
+                fontSize = 30.px
                 textFill = c("#f9f6f2")
             }
         }

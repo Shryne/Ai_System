@@ -3,6 +3,7 @@ package game_ui.game_2048
 import game_logic.game_2048.Binary2048
 import game_logic.game_2048.Game2048
 import game_logic.game_2048.Move
+import game_ui.game_2048.Style.Companion.grid
 import javafx.geometry.Pos
 import javafx.scene.input.KeyCode
 import javafx.stage.Screen
@@ -15,6 +16,7 @@ import kotlin.math.min
  */
 class FX2048 : View(Style.TITLE) {
     private val game: Game2048 = Binary2048()
+    private val grid = Grid(game.board)
 
     override val root = borderpane {
         addClass(Style.game2048)
@@ -23,10 +25,7 @@ class FX2048 : View(Style.TITLE) {
             alignment = Pos.TOP_CENTER
             fitToParentHeight()
 
-            val top = Top {
-                game.restart()
-            }
-            val grid = Grid(game.board)
+            val top = Top { game.restart() }
             add(top)
             add(grid.visualContent)
             top.maxWidthProperty().bind(grid.visualContent.widthProperty())
@@ -75,18 +74,23 @@ class FX2048 : View(Style.TITLE) {
         }
         setOnKeyPressed {
             when (it.code) {
-                KeyCode.A -> game.play(Move.LEFT)
-                KeyCode.D -> game.play(Move.RIGHT)
-                KeyCode.W -> game.play(Move.UP)
-                KeyCode.S -> game.play(Move.DOWN)
+                KeyCode.A -> play(Move.LEFT)
+                KeyCode.D -> play(Move.RIGHT)
+                KeyCode.W -> play(Move.UP)
+                KeyCode.S -> play(Move.DOWN)
                 else -> return@setOnKeyPressed
             }
         }
     }
 
+    init {
+        importStylesheet(Style::class)
+    }
+
     fun play(move: Move) {
         if (move in game.possibleMoves()) {
             game.play(move)
+            grid.play()
             //top.update()
             //stopwatch.start()
         }

@@ -20,35 +20,14 @@
  *
  */
 
-package game_logic.game_2048
+package game_ui.game_2048.tile
 
-/**
- * A quadratic board of the 2048 game.
- */
-interface Board : Iterable<Int> {
-    /**
-     * The number of field on the map (normally 16).
-     */
-    val size: Int
+interface Tile<in T> where T : Tile<T> {
+    val number: Int
 
-    /**
-     * The number of fields in a line (normally 4).
-     */
-    val lineSize: Int
+    fun push(to: T, onFinished: () -> Unit = {})
 
-    /**
-     * Returns the field on the given index.
-     * @param index The index of the field. It has to be between 0 and [size].
-     * @return The value of the field on the index.
-     */
-    operator fun get(index: Int): Int
+    fun merge(to: T)
 
-    /**
-     * Returns the field on the given index.
-     * @param row The index of the row. It has to be between 0 and [lineSize].
-     * @param column THe index of the column. It has to be between 0 and
-     *  [lineSize].
-     * @return The value of the field on the index.
-     */
-    operator fun get(row: Int, column: Int): Int
+    fun spawn()
 }
