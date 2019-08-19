@@ -25,6 +25,10 @@ package game_ui.game_2048.tile
 import game_logic.game_2048.BinaryBoard
 import game_logic.game_2048.Board
 
+/**
+ * Pushes the given tiles in the list by using [Tile.push]. Pushing isn't enough
+ * for the 2048 game. A full operation is consists of a merge and a push.
+ */
 fun <T: Tile<T>> pushLeft(tiles: List<T>) {
     for (y in 0 until BinaryBoard.LINE_SIZE) {
         for (x in 0 until BinaryBoard.LINE_SIZE) {
@@ -40,7 +44,29 @@ fun <T: Tile<T>> pushLeft(tiles: List<T>) {
     }
 }
 
+/**
+ * Pushes the given tiles in the list by using [Tile.push]. Pushing isn't enough
+ * for the 2048 game. A full operation is consists of a merge and a push.
+ */
+fun <T: Tile<T>> pushUp(tiles: List<T>) {
+    for (y in 0 until BinaryBoard.LINE_SIZE) {
+        for (x in 0 until BinaryBoard.LINE_SIZE) {
+            val current = tiles[y, x].number
+            if (current != 0) {
+                for (y1 in 0 until BinaryBoard.LINE_SIZE) {
+                    if (tiles[y1, x].number == 0) {
+                        tiles[y, x].push(tiles[y1, x])
+                    }
+                }
+            }
+        }
+    }
+}
 
+/**
+ * Pushes the given tiles in the list by using [Tile.push]. Pushing isn't enough
+ * for the 2048 game. A full operation is consists of a merge and a push.
+ */
 fun <T: Tile<T>> pushRight(tiles: List<T>) {
     for (y in 0 until BinaryBoard.LINE_SIZE) {
         for (x in (0 until BinaryBoard.LINE_SIZE).reversed()) {
@@ -56,6 +82,10 @@ fun <T: Tile<T>> pushRight(tiles: List<T>) {
     }
 }
 
+/**
+ * Pushes the given tiles in the list by using [Tile.push]. Pushing isn't enough
+ * for the 2048 game. A full operation is consists of a merge and a push.
+ */
 fun <T: Tile<T>> pushDown(tiles: List<T>) {
     for (y in (0 until BinaryBoard.LINE_SIZE).reversed()) {
         for (x in 0 until BinaryBoard.LINE_SIZE) {
@@ -71,6 +101,10 @@ fun <T: Tile<T>> pushDown(tiles: List<T>) {
     }
 }
 
+/**
+ * Merges the given tiles in the list by using [Tile.merge]. Merging isn't
+ * enough for the 2048 game. A full operation is consists of a merge and a push.
+ */
 fun <T: Tile<T>> mergeLeft(tiles: List<T>) {
     for (y in 0 until BinaryBoard.LINE_SIZE) {
         for (x in 0 until BinaryBoard.LINE_SIZE) {
@@ -89,6 +123,32 @@ fun <T: Tile<T>> mergeLeft(tiles: List<T>) {
     }
 }
 
+/**
+ * Merges the given tiles in the list by using [Tile.merge]. Merging isn't
+ * enough for the 2048 game. A full operation is consists of a merge and a push.
+ */
+fun <T: Tile<T>> mergeUp(tiles: List<T>) {
+    for (y in 0 until BinaryBoard.LINE_SIZE) {
+        for (x in 0 until BinaryBoard.LINE_SIZE) {
+            val current = tiles[y, x].number
+            if (current != 0) {
+                for (y1 in y + 1 until BinaryBoard.LINE_SIZE) {
+                    if (tiles[y1, x].number == current) {
+                        tiles[y1, x].merge(tiles[y, x])
+                        break
+                    } else if (tiles[y1, x].number != 0) {
+                        break
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Merges the given tiles in the list by using [Tile.merge]. Merging isn't
+ * enough for the 2048 game. A full operation is consists of a merge and a push.
+ */
 fun <T: Tile<T>> mergeRight(tiles: List<T>) {
     for (y in 0 until BinaryBoard.LINE_SIZE) {
         for (x in (0 until BinaryBoard.LINE_SIZE).reversed()) {
@@ -107,6 +167,10 @@ fun <T: Tile<T>> mergeRight(tiles: List<T>) {
     }
 }
 
+/**
+ * Merges the given tiles in the list by using [Tile.merge]. Merging isn't
+ * enough for the 2048 game. A full operation is consists of a merge and a push.
+ */
 fun <T: Tile<T>> mergeDown(tiles: List<T>) {
     for (y in (0 until BinaryBoard.LINE_SIZE).reversed()) {
         for (x in 0 until BinaryBoard.LINE_SIZE) {
