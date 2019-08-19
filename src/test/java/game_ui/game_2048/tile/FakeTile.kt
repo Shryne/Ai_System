@@ -23,9 +23,13 @@
 package game_ui.game_2048.tile
 
 import game_logic.game_2048.BinaryBoard
+import junit.framework.Assert
+import junit.framework.Assert.assertEquals
 
 /**
  * A Tile to test the tile movements in the ui layer of 2048.
+ * @see [pushRight]
+ * @see [mergeRight]
  */
 class FakeTile(override var number: Int) : Tile<FakeTile> {
     override fun push(to: FakeTile, onFinished: () -> Unit) {
@@ -63,4 +67,22 @@ fun tileList(vararg values: Int): List<FakeTile> {
         "values.size: ${values.size}, BinaryBoard.SIZE: ${BinaryBoard.SIZE}"
     }
     return values.map(::FakeTile)
+}
+
+/**
+ * A shortcut to test the movement functions.
+ * @param input The input board.
+ * @param expected The expected result.
+ * @param function The function to apply on the input.
+ */
+fun assert(
+    input: IntArray, expected: IntArray, function: (List<FakeTile>) -> Unit
+) {
+    tileList(*input).apply {
+        function(this)
+        assertEquals(
+            tileList(*expected),
+            this
+        )
+    }
 }

@@ -25,6 +25,22 @@ package game_ui.game_2048.tile
 import game_logic.game_2048.BinaryBoard
 import game_logic.game_2048.Board
 
+fun <T: Tile<T>> pushLeft(tiles: List<T>) {
+    for (y in 0 until BinaryBoard.LINE_SIZE) {
+        for (x in 0 until BinaryBoard.LINE_SIZE) {
+            val current = tiles[y, x].number
+            if (current != 0) {
+                for (x1 in 0 until BinaryBoard.LINE_SIZE) {
+                    if (tiles[y, x1].number == 0) {
+                        tiles[y, x].push(tiles[y, x1])
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 fun <T: Tile<T>> pushRight(tiles: List<T>) {
     for (y in 0 until BinaryBoard.LINE_SIZE) {
         for (x in (0 until BinaryBoard.LINE_SIZE).reversed()) {
@@ -33,6 +49,24 @@ fun <T: Tile<T>> pushRight(tiles: List<T>) {
                 for (x1 in (0 until BinaryBoard.LINE_SIZE).reversed()) {
                     if (tiles[y, x1].number == 0) {
                         tiles[y, x].push(tiles[y, x1])
+                    }
+                }
+            }
+        }
+    }
+}
+
+fun <T: Tile<T>> mergeLeft(tiles: List<T>) {
+    for (y in 0 until BinaryBoard.LINE_SIZE) {
+        for (x in 0 until BinaryBoard.LINE_SIZE) {
+            val current = tiles[y, x].number
+            if (current != 0) {
+                for (x1 in x + 1 until BinaryBoard.LINE_SIZE) {
+                    if (tiles[y, x1].number == current) {
+                        tiles[y, x1].merge(tiles[y, x])
+                        break
+                    } else if (tiles[y, x1].number != 0) {
+                        break
                     }
                 }
             }

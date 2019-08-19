@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19b44a42-eab3-4718-a9fc-4c89e4d48a89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_all_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/FXTile.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Tile.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/game_logic/game_2048/BinaryBoardTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_reflect_1_2_60.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_reflect_1_3_41.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementLeftTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementRightTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ai_System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ai_System.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Board.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Board.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+            <state relative-caret-position="136">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -44,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
+            <state relative-caret-position="765">
               <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
             </state>
           </provider>
@@ -53,17 +44,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="50" column="58" lean-forward="true" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+            <state relative-caret-position="84">
+              <caret line="60" column="18" lean-forward="true" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementTest.kt">
+        <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementRightTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="188" column="25" lean-forward="true" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementLeftTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1411">
+              <caret line="103" column="12" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+              <folding>
+                <element signature="e#1135#1356#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,8 +74,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="152">
+              <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
+              <folding>
+                <element signature="e#1140#1252#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,8 +91,8 @@
         <option value="package-info" />
         <option value="Class" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -119,8 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/logic/Game2048.kt" />
-        <option value="$PROJECT_DIR$/src/game_logic/Game2048.kt" />
         <option value="$PROJECT_DIR$/src/game_logic/package-info.java" />
         <option value="$PROJECT_DIR$/src/game_logic/Binary2048.kt" />
         <option value="$PROJECT_DIR$/LICENSE" />
@@ -153,21 +157,24 @@
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryMap.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Game2048.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Binary2048.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/FX2048.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Tile.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Tile.kt" />
         <option value="$PROJECT_DIR$/src/test/java/game_logic/game_2048/Board2048Test.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/Board.kt" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/game_logic/game_2048/BinaryBoardTest.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Movement.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/FXTile.kt" />
         <option value="$PROJECT_DIR$/src/main/java/Sample.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_logic/game_2048/BinaryBoard.kt" />
-        <option value="$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt" />
         <option value="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementTest.kt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/MovementLeftTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementLeftTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementRightTest.kt" />
         <option value="$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt" />
       </list>
     </option>
@@ -363,17 +370,18 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Eugen\IdeaProjects\Ai_System\src\main\java\game_ui\game_2048\tile" />
+      <recent name="C:\Users\Eugen\IdeaProjects\Ai_System\src\main\java\game_logic\game_2048\random" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="game_ui.game_2048" />
       <recent name="game_ui.game_2048.tile" />
       <recent name="game_logic.game_2048" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Eugen\IdeaProjects\Ai_System\src\main\java\game_ui\game_2048" />
       <recent name="C:\Users\Eugen\IdeaProjects\Ai_System" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Eugen\IdeaProjects\Ai_System\src\main\java\game_ui\game_2048\tile" />
-      <recent name="C:\Users\Eugen\IdeaProjects\Ai_System\src\main\java\game_logic\game_2048\random" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -388,11 +396,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in Ai_System">
+  <component name="RunManager" selected="JUnit.MovementLeftTest">
     <configuration name="All in Ai_System" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ai_System" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovementLeftTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ai_System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game_ui.game_2048.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game_ui.game_2048" />
+      <option name="MAIN_CLASS_NAME" value="game_ui.game_2048.MovementLeftTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -408,38 +431,6 @@
       <option name="PACKAGE_NAME" value="game_ui.game_2048" />
       <option name="MAIN_CLASS_NAME" value="game_ui.game_2048.MovementTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovementTest.mergeRightFour" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Ai_System" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="game_ui.game_2048.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="game_ui.game_2048" />
-      <option name="MAIN_CLASS_NAME" value="game_ui.game_2048.MovementTest" />
-      <option name="METHOD_NAME" value="mergeRightFour" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovementTest.mergeRightThreeTilesWithBorder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Ai_System" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="game_ui.game_2048.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="game_ui.game_2048" />
-      <option name="MAIN_CLASS_NAME" value="game_ui.game_2048.MovementTest" />
-      <option name="METHOD_NAME" value="mergeRightThreeTilesWithBorder" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -460,13 +451,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MovementTest.moveRightPushOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ai_System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game_ui.game_2048.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game_ui.game_2048" />
+      <option name="MAIN_CLASS_NAME" value="game_ui.game_2048.MovementTest" />
+      <option name="METHOD_NAME" value="moveRightPushOne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in Ai_System" />
+        <item itemvalue="JUnit.MovementLeftTest" />
         <item itemvalue="JUnit.MovementTest" />
-        <item itemvalue="JUnit.MovementTest.mergeRightFour" />
         <item itemvalue="JUnit.MovementTest.mergeRightTwoTiles" />
-        <item itemvalue="JUnit.MovementTest.mergeRightThreeTilesWithBorder" />
+        <item itemvalue="JUnit.MovementTest.moveRightPushOne" />
+        <item itemvalue="JUnit.All in Ai_System" />
       </list>
     </recent_temporary>
   </component>
@@ -600,46 +607,53 @@
       <option name="project" value="LOCAL" />
       <updated>1565621350133</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="implement right move and merge for ui">
+      <created>1566218902436</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1566218902436</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MovementTest_mergeRightTwoTiles - 2019.08.19 at 14h 30m 34s.xml">
-      <configuration name="MovementTest.mergeRightTwoTiles" configurationId="JUnit" />
+    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 46m 45s.xml">
+      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightTwoTiles - 2019.08.19 at 14h 31m 33s.xml">
-      <configuration name="MovementTest.mergeRightTwoTiles" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MovementTest - 2019.08.19 at 14h 31m 42s.xml">
+    <history-entry file="MovementTest - 2019.08.19 at 14h 46m 53s.xml">
       <configuration name="MovementTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 31m 58s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="All_in_Ai_System - 2019.08.19 at 14h 47m 21s.xml">
+      <configuration name="All in Ai_System" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 32m 02s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="MovementTest_moveRightPushOne - 2019.08.19 at 14h 56m 27s.xml">
+      <configuration name="MovementTest.moveRightPushOne" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 40m 57s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="MovementTest_mergeRightTwoTiles - 2019.08.19 at 14h 59m 18s.xml">
+      <configuration name="MovementTest.mergeRightTwoTiles" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 41m 18s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="MovementTest - 2019.08.19 at 15h 01m 37s.xml">
+      <configuration name="MovementTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 41m 22s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="MovementLeftTest - 2019.08.19 at 15h 15m 08s.xml">
+      <configuration name="MovementLeftTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 42m 05s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="MovementTest - 2019.08.19 at 15h 16m 36s.xml">
+      <configuration name="MovementTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovementTest_mergeRightFour - 2019.08.19 at 14h 44m 31s.xml">
-      <configuration name="MovementTest.mergeRightFour" configurationId="JUnit" />
+    <history-entry file="MovementLeftTest - 2019.08.19 at 15h 17m 12s.xml">
+      <configuration name="MovementLeftTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MovementLeftTest - 2019.08.19 at 15h 17m 44s.xml">
+      <configuration name="MovementLeftTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="703" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49752474" weight="0.23157895" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49752474" visible="true" weight="0.21538462" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -648,8 +662,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924694" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" weight="0.29246935" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4395797" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49959514" visible="true" weight="0.36602452" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4395797" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -668,36 +682,6 @@
       <window_info anchor="right" x="0" y="0" width="273" height="535" id="Documentation" order="8" side_tool="true" weight="0.32955465" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49752474" visible="true" weight="0.23157895" />
-      <window_info id="Image Layers" order="1" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Structure" order="5" sideWeight="0.50247526" side_tool="true" weight="0.22753036" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32924694" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" weight="0.29246935" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.2697023" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27495623" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50040483" side_tool="true" weight="0.31509122" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32049036" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.19352227" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Cargo" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" x="0" y="0" width="273" height="535" id="Documentation" order="8" side_tool="true" weight="0.32955465" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix for sonarcloud... filled with hope as always" />
@@ -717,22 +701,10 @@
     <MESSAGE value="implement the visual part of the tiles" />
     <MESSAGE value="fix travis (maybe)" />
     <MESSAGE value="refactor formula" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor formula" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt</url>
-          <line>45</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="implement right move and merge for ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement right move and merge for ui" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/game_logic/game_2048/Binary2048Test.kt" />
     <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -972,24 +944,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sample.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="262" column="29" selection-start-line="262" selection-start-column="29" selection-end-line="262" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1038,31 +996,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Style.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+        <state relative-caret-position="153">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/tile/FakeTile.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        <state relative-caret-position="152">
+          <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
+          <folding>
+            <element signature="e#1140#1252#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementTest.kt">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="188" column="25" lean-forward="true" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="25" />
+        <state relative-caret-position="136">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/Grid.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementLeftTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="103" column="12" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+          <folding>
+            <element signature="e#1135#1356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/game_ui/game_2048/MovementRightTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game_ui/game_2048/tile/Movement.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="50" column="58" lean-forward="true" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+        <state relative-caret-position="84">
+          <caret line="60" column="18" lean-forward="true" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
         </state>
       </provider>
     </entry>
