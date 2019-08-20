@@ -24,6 +24,32 @@ package game_ui.game_2048.tile
 
 import game_logic.game_2048.BinaryBoard
 import game_logic.game_2048.Board
+import game_logic.game_2048.Move
+
+/**
+ * Plays the given move on the given tiles. This corresponds to a game turn
+ * which consists of a merge and a push.
+ */
+fun <T: Tile<T>> makeTurn(move: Move, tiles: List<T>) {
+    when (move) {
+        Move.LEFT -> {
+            mergeLeft(tiles)
+            pushLeft(tiles)
+        }
+        Move.RIGHT -> {
+            mergeRight(tiles)
+            pushRight(tiles)
+        }
+        Move.UP -> {
+            mergeUp(tiles)
+            pushUp(tiles)
+        }
+        Move.DOWN -> {
+            mergeDown(tiles)
+            pushDown(tiles)
+        }
+    }
+}
 
 /**
  * Pushes the given tiles in the list by using [Tile.push]. Pushing isn't enough
@@ -37,6 +63,7 @@ fun <T: Tile<T>> pushLeft(tiles: List<T>) {
                 for (x1 in 0 until BinaryBoard.LINE_SIZE) {
                     if (tiles[y, x1].number == 0) {
                         tiles[y, x].push(tiles[y, x1])
+                        break
                     }
                 }
             }
@@ -56,6 +83,7 @@ fun <T: Tile<T>> pushUp(tiles: List<T>) {
                 for (y1 in 0 until BinaryBoard.LINE_SIZE) {
                     if (tiles[y1, x].number == 0) {
                         tiles[y, x].push(tiles[y1, x])
+                        break
                     }
                 }
             }
@@ -75,6 +103,7 @@ fun <T: Tile<T>> pushRight(tiles: List<T>) {
                 for (x1 in (0 until BinaryBoard.LINE_SIZE).reversed()) {
                     if (tiles[y, x1].number == 0) {
                         tiles[y, x].push(tiles[y, x1])
+                        break
                     }
                 }
             }
@@ -94,6 +123,7 @@ fun <T: Tile<T>> pushDown(tiles: List<T>) {
                 for (y1 in (0 until BinaryBoard.LINE_SIZE).reversed()) {
                     if (tiles[y1, x].number == 0) {
                         tiles[y, x].push(tiles[y1, x])
+                        break
                     }
                 }
             }

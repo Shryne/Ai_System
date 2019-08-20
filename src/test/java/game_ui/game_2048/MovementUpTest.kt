@@ -22,19 +22,44 @@
 
 package game_ui.game_2048
 
+import game_logic.game_2048.Move
 import game_ui.game_2048.tile.*
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 
 /**
- * Tests for [pushUp] and [mergeUp]
+ * Tests for [makeTurn], [pushUp] and [mergeUp].
  */
 class MovementUpTest {
+    /**
+     * [makeTurn] on a line with a pushable and mergeable tile must make the
+     * right turn.
+     */
+    @Test
+    fun makeTurnOnPushMergeableBoard() {
+        assert(
+            intArrayOf(
+                2, 0, 0, 0,
+                1, 0, 0, 0,
+                0, 0, 0, 0,
+                1, 0, 0, 0
+            ),
+            intArrayOf(
+                2, 0, 0, 0,
+                2, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 0
+            )
+        ) {
+            makeTurn(Move.UP, it)
+        }
+    }
+
     /**
      * [pushUp] with one pushable tile must push it.
      */
     @Test
-    fun pushUpPushOne() {
+    fun pushUpOne() {
         assert(
             intArrayOf(
                 0, 0, 0, 0,
@@ -45,6 +70,28 @@ class MovementUpTest {
             intArrayOf(
                 1, 0, 0, 0,
                 0, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 0
+            ),
+            ::pushUp
+        )
+    }
+
+    /**
+     * [pushUp] with two mergeable tiles must keep them as they were.
+     */
+    @Test
+    fun pushTwoMergeables() {
+        assert(
+            intArrayOf(
+                1, 0, 0, 0,
+                1, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 0
+            ),
+            intArrayOf(
+                1, 0, 0, 0,
+                1, 0, 0, 0,
                 0, 0, 0, 0,
                 0, 0, 0, 0
             ),
@@ -170,10 +217,10 @@ class MovementUpTest {
     fun mergeUpFour() {
         assert(
             intArrayOf(
-                1, 0, 0, 0,
-                1, 0, 0, 0,
-                1, 0, 0, 0,
-                1, 0, 0, 0
+                2, 0, 0, 0,
+                2, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 0
             ),
             intArrayOf(
                 2, 0, 0, 0,

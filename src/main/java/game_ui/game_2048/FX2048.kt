@@ -88,9 +88,10 @@ class FX2048 : View(Style.TITLE) {
     }
 
     fun play(move: Move) {
+        //grid.play(move)
         if (move in game.possibleMoves()) {
             game.play(move)
-            grid.play()
+            grid.singleTurnUpdate(move)
             //top.update()
             //stopwatch.start()
         }

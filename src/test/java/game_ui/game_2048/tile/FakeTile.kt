@@ -23,7 +23,6 @@
 package game_ui.game_2048.tile
 
 import game_logic.game_2048.BinaryBoard
-import junit.framework.Assert
 import junit.framework.Assert.assertEquals
 
 /**
