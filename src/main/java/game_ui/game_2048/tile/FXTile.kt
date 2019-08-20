@@ -76,7 +76,6 @@ class FXTile(number: Int, val index: Int) : Tile<FXTile> {
     }
 
     override fun push(to: FXTile, onFinished: () -> Unit) {
-        println("Push from: $index, to: ${to.index}")
         futureNumber = 0
         to.futureNumber = number
 
@@ -102,7 +101,6 @@ class FXTile(number: Int, val index: Int) : Tile<FXTile> {
     }
 
     override fun merge(to: FXTile) {
-        println("Merge from: $index, to: ${to.index}")
         push(to) {
             to.futureNumber = number * 2
             ScaleTransition(Duration.millis(MERGE_TIME / animationSpeed), to.visualContent).apply {
@@ -115,7 +113,6 @@ class FXTile(number: Int, val index: Int) : Tile<FXTile> {
     }
 
     override fun spawn() {
-        println("Spawn in: $index")
         PauseTransition(
             Duration.millis(FULL_MERGE_TIME / animationSpeed)
         ).apply {

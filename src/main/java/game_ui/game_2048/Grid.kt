@@ -8,6 +8,7 @@ import game_ui.game_2048.tile.makeTurn
 import game_ui.game_2048.tile.pushRight
 import javafx.collections.FXCollections
 import javafx.geometry.Pos
+import javafx.scene.layout.StackPane
 import javafx.scene.layout.TilePane
 import javafx.stage.Screen
 import tornadofx.*
@@ -25,23 +26,44 @@ class Grid(private val board: Board) {
         (0 until board.size).map { FXTile(board[it], it) }
     )
 
-    val visualContent = TilePane().apply {
-        addClass(Style.grid)
-        prefColumns = 4
-        alignment = Pos.CENTER
-        hgap = gap
-        vgap = gap
+    val visualContent = StackPane().apply {
+        tilepane {
+            addClass(Style.grid)
+            prefColumns = 4
+            alignment = Pos.CENTER
+            hgap = gap
+            vgap = gap
 
-        val action = {
-            _: Double ->
-            prefTileWidth = sizePerTile(min(width, height))
-            prefTileHeight = prefTileWidth
+            val action = { _: Double ->
+                prefTileWidth = sizePerTile(min(width, height))
+                prefTileHeight = prefTileWidth
+            }
+            widthProperty().onChange(action)
+            heightProperty().onChange(action)
+
+            (0 until board.size).map {
+                button {
+                    useMaxSize = true
+                    addClass(Style.tile, Style.tile0)
+                }
+            }
         }
-        widthProperty().onChange(action)
-        heightProperty().onChange(action)
+        tilepane {
+            prefColumns = 4
+            alignment = Pos.CENTER
+            hgap = gap
+            vgap = gap
 
-        bindChildren(tiles) {
-            it.visualContent
+            val action = { _: Double ->
+                prefTileWidth = sizePerTile(min(width, height))
+                prefTileHeight = prefTileWidth
+            }
+            widthProperty().onChange(action)
+            heightProperty().onChange(action)
+
+            bindChildren(tiles) {
+                it.visualContent
+            }
         }
     }
 
@@ -75,7 +97,7 @@ class Grid(private val board: Board) {
     }
 
     private val FXTile.isEmpty
-        get() = futureNumber == 0
+    get() = futureNumber == 0
 
     private fun pushable(currentIndex: Int, move: Move) =
         if (tiles[currentIndex].isEmpty) tiles.find(
@@ -152,20 +174,20 @@ class Grid(private val board: Board) {
     private fun index(y: Int, x: Int) = y * BinaryBoard.LINE_SIZE + x
 
     private val Move.x
-        get() = when (this) {
-            Move.LEFT -> -1
-            Move.RIGHT -> 1
-            Move.UP -> 0
-            Move.DOWN -> 0
-        }
+    get() = when (this) {
+        Move.LEFT -> -1
+        Move.RIGHT -> 1
+        Move.UP -> 0
+        Move.DOWN -> 0
+    }
 
     private val Move.y
-        get() = when(this) {
-            Move.LEFT -> 0
-            Move.RIGHT -> 0
-            Move.UP -> -1
-            Move.DOWN -> 1
-        }
+    get() = when(this) {
+        Move.LEFT -> 0
+        Move.RIGHT -> 0
+        Move.UP -> -1
+        Move.DOWN -> 1
+    }
 
     private val Move.isPositive get() = (x == 1) || (y == 1)
     private val Move.dimension get() = if (abs(x) == 1) 0 else 1
