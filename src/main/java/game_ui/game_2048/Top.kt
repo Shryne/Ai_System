@@ -27,6 +27,7 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
+import javafx.scene.layout.Pane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import tornadofx.*
@@ -41,12 +42,14 @@ class Top(
     private val scoreProperty = SimpleIntegerProperty()
     private val highScoreProperty = SimpleIntegerProperty()
 
+    private var scoreRect: Pane
+
     init {
         addClass(Style.top)
         val title = label(Style.TITLE) {
             addClass(Style.gameTitle)
         }
-        val scoreRect = scoreRect(
+        scoreRect = scoreRect(
             Style.SCORE_RECT_TITLE, scoreProperty
         )
         val highScoreRect = scoreRect(
@@ -98,13 +101,26 @@ class Top(
         add(bottom)
     }
 
-    private fun Node.scoreRect(title: String, score: Property<Number>) =
-        vbox {
-            padding = Style.margin.value.run {
-                Insets(this, this, this, this)
-            }
-            alignment = Pos.CENTER
-            label(title).addClass(Style.scoreLabel)
-            label(score).addClass(Style.scoreValue)
-        }.addClass(Style.scoreTile)
+    private fun Pane.scoreRect(title: String, score: Property<Number>) =
+        stackpane {
+            vbox {
+                padding = Style.margin.value.run {
+                    Insets(this, this, this, this)
+                }
+                alignment = Pos.CENTER
+                label(title).addClass(Style.scoreLabel)
+                label(score).addClass(Style.scoreValue)
+            }.addClass(Style.scoreTile)
+        }
+
+    fun update(score: Int) {
+        if (scoreProperty.value < score) {
+            AnimatedScore(
+                "+${score - scoreProperty.value}",
+                400.0,
+                scoreRect
+            )
+            scoreProperty.value = score
+        }
+    }
 }

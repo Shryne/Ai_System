@@ -3,12 +3,10 @@ package game_ui.game_2048
 import game_logic.game_2048.Binary2048
 import game_logic.game_2048.Game2048
 import game_logic.game_2048.Move
-import game_ui.game_2048.Style.Companion.grid
 import javafx.geometry.Pos
 import javafx.scene.input.KeyCode
-import javafx.stage.Screen
+import javafx.scene.layout.VBox
 import tornadofx.*
-import kotlin.math.max
 import kotlin.math.min
 
 /**
@@ -17,6 +15,7 @@ import kotlin.math.min
 class FX2048 : View(Style.TITLE) {
     private val game: Game2048 = Binary2048()
     private val grid = Grid(game.board)
+    private lateinit var top: Top
 
     override val root = borderpane {
         addClass(Style.game2048)
@@ -26,6 +25,7 @@ class FX2048 : View(Style.TITLE) {
             fitToParentHeight()
 
             val top = Top { game.restart() }
+            this@FX2048.top = top
             add(top)
             add(grid.visualContent)
             top.maxWidthProperty().bind(grid.visualContent.widthProperty())
@@ -88,11 +88,10 @@ class FX2048 : View(Style.TITLE) {
     }
 
     fun play(move: Move) {
-        //grid.play(move)
         if (move in game.possibleMoves()) {
             game.play(move)
             grid.singleTurnUpdate(move)
-            //top.update()
+            top.update(game.score)
             //stopwatch.start()
         }
     }

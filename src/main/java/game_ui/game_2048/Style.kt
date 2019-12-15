@@ -149,7 +149,7 @@ class Style : Stylesheet() {
             scoreLabel {
                 fontFamily = "Arial"
                 fontWeight = FontWeight.BOLD
-                fontSize = 13.px
+                fontSize = 16.px
                 textFill = c("#eee4da")
             }
 
